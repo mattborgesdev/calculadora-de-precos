@@ -1,0 +1,16 @@
+{
+  "name": "calculadora-de-precos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Matheus Borges",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "express": "^4.18.3",
+    "nodemon": "^3.1.0"
+  }
+}
