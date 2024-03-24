@@ -7,10 +7,6 @@ var result = document.getElementById("result");
 var result2 = document.getElementById("result2");
 var valueResult = document.getElementById("valueResult")
 
-function captureValue() {
-    //alert("O valor inserido é: " + value1.value + value2.value + qtd1.value + qtd2.value);
-}
-
 function verifyInput() {
     if (value1.value && value2.value && qtd1.value && qtd2.value) {
         calculateButton.classList.remove("disabled");
@@ -43,11 +39,9 @@ function compareResult() {
         var highestValue = parseFloat(value1.value);
         var formatedResult3 = highestValue.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
         valueResult.innerHTML = formatedResult3;
-        console.log(formatedResult3);
     } else {
         var highestValue = parseFloat(value2.value);
         var formatedResult3 = highestValue.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
         valueResult.innerHTML = formatedResult3;
-        console.log(formatedResult3);
     }
 }
