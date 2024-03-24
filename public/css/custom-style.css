@@ -1,0 +1,14 @@
+.custom-input {
+    width:100%;
+    padding: .375rem .75rem;
+    font-size:1rem;
+    font-weight: 400;
+    line-height:1.5;
+    color:#303030;
+    border-radius:var(--bs-border-radius)
+}
+
+.custom-result {
+    border: 1px solid white;
+    border-radius: var(--bs-border-radius);
+}

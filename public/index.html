@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Preço</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom-style.css">
 </head>
 <body>
   <div class="container text-center">
@@ -15,55 +16,65 @@
       <div class="row row-cols-2 pt-3">
           <div class="col">
             <div class="mb-3">
-              <label for="valor" class="mb-2">Valor (R$):</label><br/>
-              <input type="text" style="width:100%;padding: .375rem .75rem; font-size:1rem; font-weight: 400; line-height:1.5; color:#303030;border-radius:var(--bs-border-radius)" id="valor" name="valor" pattern="^\d{1,3}(?:\.\d{3})*(?:,\d{1,2})?$" placeholder="Ex: 1,25" required>
+              <b>PRODUTO 1</b>
+              <hr>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3">
+              <b>PRODUTO 2</b>
+              <hr>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3">
+              <label for="value1" class="mb-2">Valor (R$):</label><br/>
+              <input type="number" class="custom-input" id="value1" oninput="verifyInput()" name="value1" step="0.01" min="0" placeholder="Ex: 1.25" required lang="pt-BR">
+              
             </div>
           </div>
           <div class="col">
               <div class="mb-3">
-                <label for="valor" class="mb-2">Valor (R$):</label><br/>
-                <input type="text" style="width:100%;padding: .375rem .75rem; font-size:1rem; font-weight: 400; line-height:1.5; color:#303030;border-radius:var(--bs-border-radius)" id="valor" name="valor" pattern="^\d{1,3}(?:\.\d{3})*(?:,\d{1,2})?$" placeholder="Ex: 1,25" required>
+                <label for="value2" class="mb-2">Valor (R$):</label><br/>
+                <input type="text" class="custom-input" id="value2" oninput="verifyInput()" name="value2" pattern="^\d{1,3}(?:\.\d{3})*(?:,\d{1,2})?$" placeholder="Ex: 1.25" required>
               </div>
           </div>
           <div class="col">
             <div class="mb-3">
-              <label for="number" class="mb-2">Quantidade</label>
-              <input type="number" style="width:100%;padding: .375rem .75rem; font-size:1rem; font-weight: 400; line-height:1.5; color:#303030;border-radius:var(--bs-border-radius)" id="numero" name="numero" pattern="[0-9]*" title="Informe um número inteiro" placeholder="Ex: 6" required>
+              <label for="qtd1" class="mb-2">Quantidade</label>
+              <input type="number" class="custom-input" id="qtd1" oninput="verifyInput()" name="qtd1" pattern="[0-9]*" title="Informe um número inteiro" placeholder="Ex: 6" required>
             </div>
           </div>
           <div class="col">
             <div class="mb-3">
-              <label for="number" class="mb-2">Quantidade</label>
-              <input type="number" style="width:100%;padding: .375rem .75rem; font-size:1rem; font-weight: 400; line-height:1.5; color:#303030;border-radius:var(--bs-border-radius)" id="numero" name="numero" pattern="[0-9]*" title="Informe um número inteiro" placeholder="Ex: 6" required>
+              <label for="qtd2" class="mb-2">Quantidade</label>
+              <input type="number" class="custom-input" id="qtd2" oninput="verifyInput()" name="qtd2" pattern="[0-9]*" title="Informe um número inteiro" placeholder="Ex: 6" required>
             </div>
           </div>
       </div>
     </form>
 
-    <div class="row text-center pt-3 mx-1"><button class="btn btn-success" type="submit" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Calcular</button></div>
-    <div class="collapse" id="collapseExample">
-      
-        
-          <h4 class="mt-4">Resultado:</h4>
-          <p class="mb-0">O produto com valor <b>R$ 0,00</b> e quantidade 0 <b>compensa mais</b>!</p>
+    <div class="row text-center pt-3 mx-1"><button class="btn btn-success disabled" type="submit" id="calculateButton" onclick="captureValue(); priceResult(); compareResult()" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Calcular</button></div>
+    <div class="collapse p-4 mt-4 custom-result" id="collapseExample">
+          <h4>Resultado:</h4>
+          <p class="mb-0">O produto com valor <b id="valueResult"></b> compensa mais!</p>
           <hr>
-          <div class="row row-cols-2 pt-3">
+          <div class="row row-cols-2 pt-1">
             <div class="col">
               <b>PRODUTO 1</b><br/>
               Valor por unidade:<br/>
-              <b>R$ 0,00</b>
+              <b id="result"></b>
             </div>
             <div class="col">
               <b>PRODUTO 2</b><br/>
               Valor por unidade:<br/>
-              <b>R$ 0,00</b>
+              <b id="result2"></b>
             </div>
-          </div>
-        
-      
+          </div> 
     </div>
 
   </div>
 <script src="./js/bootstrap.min.js"></script>
+<script src="./js/biz-logic.js"></script>
 </body>
 </html>
