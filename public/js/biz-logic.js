@@ -35,12 +35,12 @@ function getDividedPrice2() {
 }
 
 function compareResult() {
-    if(value1.value > value2.value) {
-        var highestValue = parseFloat(value1.value);
+    if(getDividedPrice1() < getDividedPrice2()) {
+        var highestValue = parseFloat(getDividedPrice1());
         var formatedResult3 = highestValue.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
         valueResult.innerHTML = formatedResult3;
     } else {
-        var highestValue = parseFloat(value2.value);
+        var highestValue = parseFloat(getDividedPrice2());
         var formatedResult3 = highestValue.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
         valueResult.innerHTML = formatedResult3;
     }
