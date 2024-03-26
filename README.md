@@ -1,11 +1,45 @@
-# CALCULADORA DE PREÇO
 
-O objetivo deste programa é auxiliar o usuário na hora de comparar preços entre dois produtos, informando qual compensa mais mediante a inserção do preço e da quantidade.
+# Calculadora de Preços
 
-# REGRA DE NEGÓCIO
+O programa auxilia o usuário na hora de comparar preços entre dois produtos, informando qual compensa mais mediante a inserção do preço e da quantidade.
 
-- Ao inserir os valores pedidos, o sistema irá dividir o valor pela quantidade e verificará entre o produto da esquerda e o da direita qual tem o menor valor por unidade;
 
-- O botão Calcular deve estar como DISABLED até que os valores sejam inseridos corretamente nos campos;
 
-- Ao clicar em CALCULAR, o sistema irá apresentar através de um COLLAPSE o resultado, mostrando o preço por unidade do Produto 1 e do Produto 2.
+
+## Stack utilizada
+
+JavaScript, Node, Express, Docker, Bootstrap
+
+
+## Rodando localmente
+
+Clone o projeto
+
+```bash
+  git clone https://github.com/mattborgesdev/calculadora-de-precos
+```
+
+Entre no diretório do projeto
+
+```bash
+  cd calculadora-de-precos
+```
+
+Instale as dependências
+
+```bash
+  npm install
+```
+
+Inicie o servidor
+
+```bash
+  npm run start
+```
+
+
+## Screenshots
+
+![Desktop App Screenshot](public/img/desktop-view.png)
+
+![Mobile App Screenshot](public/img/mobile-view.png)
