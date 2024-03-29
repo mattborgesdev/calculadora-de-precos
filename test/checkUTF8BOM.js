@@ -31,5 +31,5 @@ try {
     checkFiles(files);
     console.log('Todos os arquivos estão no formato UTF-8 com BOM.');
 } catch (error) {
-    console.error(error.message);
+    throw new Error(error.message);
 }
