@@ -1,29 +1,35 @@
 const fs = require('fs');
 
 function isUTF8BOM(file) {
-    if (file.length >= 3) {
-        const arr = Buffer.from(file);
-        if (arr.length >= 3 && arr[0] === 0xEF && arr[1] === 0xBB && arr[2] === 0xBF) {
-            console.log("O arquivo está no formato UTF-8 com BOM.");
-        } else {
-            throw new Error("O arquivo não está no formato UTF-8 com BOM");
-        }
+    const buffer = fs.readFileSync(file);
+    if (buffer.length >= 3 && buffer[0] === 0xEF && buffer[1] === 0xBB && buffer[2] === 0xBF) {
+        return true; // UTF-8 com BOM
     } else {
-        console.log("O arquivo é muito pequeno para conter um BOM UTF-8.");
+        return false; // Não é UTF-8 com BOM
     }
 }
 
-const filePath = process.argv[2];
+function checkFiles(files) {
+    const filesWithErrors = [];
+    files.forEach(file => {
+        if (!isUTF8BOM(file)) {
+            filesWithErrors.push(file);
+        }
+    });
 
-if (!filePath) {
-    console.error("Por favor, forneça o caminho para o arquivo como argumento da linha de comando.");
-    process.exit(1);
+    if (filesWithErrors.length > 0) {
+        const errorMessage = `Os seguintes arquivos não estão no formato UTF-8 com BOM: ${filesWithErrors.join(', ')}`;
+        throw new Error(errorMessage);
+    }
 }
 
-fs.readFile(filePath, (err, data) => {
-    if (err) {
-        console.error("Erro ao ler o arquivo:", err);
-        process.exit(1);
-    }
-    isUTF8BOM(data);
-});
+// Obtendo os arquivos passados como argumento
+const files = process.argv.slice(2);
+
+// Verificando os arquivos
+try {
+    checkFiles(files);
+    console.log('Todos os arquivos estão no formato UTF-8 com BOM.');
+} catch (error) {
+    console.error(error.message);
+}
