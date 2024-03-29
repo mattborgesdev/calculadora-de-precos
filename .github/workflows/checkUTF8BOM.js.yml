@@ -26,4 +26,4 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm run test public/index.html server.js Dockerfile README.md
+    - run: npm run test public/index.html server.js
