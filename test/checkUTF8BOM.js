@@ -3,9 +3,9 @@ const fs = require('fs');
 function isUTF8BOM(file) {
     const buffer = fs.readFileSync(file);
     if (buffer.length >= 3 && buffer[0] === 0xEF && buffer[1] === 0xBB && buffer[2] === 0xBF) {
-        return true; // UTF-8 com BOM
+        return true; // É UTF-8 BOM
     } else {
-        return false; // Não é UTF-8 com BOM
+        return false; // Não é UTF-8 BOM
     }
 }
 
@@ -23,10 +23,8 @@ function checkFiles(files) {
     }
 }
 
-// Obtendo os arquivos passados como argumento
 const files = process.argv.slice(2);
 
-// Verificando os arquivos
 try {
     checkFiles(files);
     console.log('Todos os arquivos estão no formato UTF-8 com BOM.');
